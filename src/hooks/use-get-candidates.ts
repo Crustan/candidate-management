@@ -3,7 +3,7 @@ import {api} from "../api";
 
 export function useGetCandidates(q?: string) {
   return useQuery({
-    queryKey: ["candidates"],
+    queryKey: ["candidates", q],
     queryFn: () => api.getCandidates(q),
   });
 }
