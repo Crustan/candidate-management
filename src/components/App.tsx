@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {useDebouncedValue} from "./hooks/use-debounced-value";
-import {useGetCandidates} from "./hooks/use-get-candidates";
-import {CandidateList} from "./components/CandidateList";
+import {useDebouncedValue} from "../hooks/use-debounced-value";
+import {useGetCandidates} from "../hooks/use-get-candidates";
+import {CandidateList} from "./CandidateList";
 
 interface SearchInputProps {
   value: string;
