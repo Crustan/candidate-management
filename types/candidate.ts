@@ -1,3 +1,12 @@
+export const Status = {
+  contact: "contact",
+  dialog: "dialog",
+  interview: "interview",
+  offer: "offer",
+  hired: "hired",
+  ended: "ended",
+} as const;
+
 export interface Address {
   street: string;
   postalCode: string;
@@ -10,6 +19,6 @@ export interface Candidate {
   name: string;
   age: number;
   email: string;
-  address: Address;
-  status: "contact" | "dialog" | "interview" | "offer" | "hired" | "ended";
+  address?: Address;
+  status: keyof typeof Status;
 }
