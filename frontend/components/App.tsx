@@ -9,6 +9,7 @@ import {Dialog} from "./Dialog";
 import {useGetCandidate} from "../hooks/use-get-candidate";
 import {useUpdateCandidate} from "../hooks/use-update-candidate";
 import {useDeleteCandidate} from "../hooks/use-delete-candidate";
+import {ThemeToggle} from "./ThemeToggle";
 
 interface SearchInputProps {
   value: string;
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="app-wrapper">
+      <ThemeToggle />
       <h1 className="heading-1">Candidate management</h1>
       <SearchInput value={q} onChange={handleSearchChange} />
       <button onClick={handleOnAddCandidateClick}>Add new candidate</button>
