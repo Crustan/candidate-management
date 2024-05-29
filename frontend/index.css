@@ -1,7 +1,57 @@
+/* Minimal CSS Reset */
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 :root {
   font-family: system-ui, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-size: 120%;
   font-weight: 400;
+  line-height: 1.5;
 
   color-scheme: dark light;
 
@@ -9,10 +59,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
+  --white: #fefefe;
   --text-color: #444444;
   --bg-color: #fafafa;
   --accent-color: #c1fbec;
+
+  --shadow: 0 0 24px 0px rgba(44, 44, 44, 0.4);
+  --border-radius: 1rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -40,39 +94,65 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem;
 
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Primitives */
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-weight: bold;
 }
 
-.logo,
-.sun,
-.moon {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: var(--text-color);
-  opacity: 0.3;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+input {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: 3px solid var(--accent-color);
+  background: var(--white)
 }
 
-.logo:hover,
-.sun:hover,
-.moon:hover {
-  opacity: 1;
-  -webkit-animation: float 1s linear infinite;
-  animation: float 1s linear infinite;
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: 3px solid;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+  
+  &:hover{
+    box-shadow: var(--shadow);
+  }
+
+  &.primary {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  
+  &.secondary {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+  }
+
 }
 
-.theme-toggle {
-  border: 0;
-  outline: none;
-  background: none;
-  width: 1.5rem;
-  height: 1.5rem;
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  input[type=search] {
+    flex: 1;
+  }
 }
