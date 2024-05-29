@@ -12,7 +12,7 @@ export const api = {
     return candidatesData;
   },
   async getCandidate(id: string): Promise<Candidate> {
-    const res = await fetch("/api/candidate/" + id);
+    const res = await fetch("/api/candidates/" + id);
 
     if (!res.ok) {
       throw new Error("Error fetching candidate");
