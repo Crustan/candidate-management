@@ -1,4 +1,5 @@
 import {useEffect, useRef} from "react";
+import css from "./Dialog.module.css";
 
 interface DialogProps {
   isOpen: boolean;
@@ -17,9 +18,13 @@ export function Dialog({isOpen, onCancel, children}: React.PropsWithChildren<Dia
   }, [isOpen]);
 
   return (
-    <dialog ref={ref} onCancel={onCancel}>
-      {children}
-      <button onClick={onCancel}>Close</button>
+    <dialog ref={ref} onCancel={onCancel} className={css.dialog}>
+      <div className={css.dialogContent}>
+        <button onClick={onCancel} className="button small">
+          Close
+        </button>
+        {children}
+      </div>
     </dialog>
   );
 }

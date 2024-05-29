@@ -1,0 +1,22 @@
+.dialog {
+  border: none;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+
+  padding: 2rem;
+  width: clamp(20ch, 80%, 40ch);
+
+  &::backdrop {
+    background-color: var(--dialog-backdrop);
+  }
+  
+  .dialog-content {
+    display: grid;
+    
+    > button {
+      justify-self: flex-end;
+      width: min-content;
+    }
+  }
+
+}

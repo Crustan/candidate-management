@@ -1,6 +1,7 @@
 import {useForm} from "react-hook-form";
-import {Candidate, Status} from "../../types/candidate";
-import {capitalizeFirstLetter} from "../utils/capitalize";
+import {Candidate, Status} from "../../../types/candidate";
+import {capitalizeFirstLetter} from "../../utils/capitalize";
+import "./CandidateForm.module.css";
 
 interface CandidateFormProps {
   onSubmit: ((candidate: Candidate) => void) | ((candidate: Omit<Candidate, "id">) => void);
@@ -61,14 +62,17 @@ export function CandidateForm({onSubmit, candidate, onDelete}: CandidateFormProp
           ))}
         </select>
       </label>
+      <footer>
+        {candidate ? (
+          <button type="button" className="button secondary" onClick={handleDelete}>
+            Delete candidate
+          </button>
+        ) : null}
 
-      {candidate ? (
-        <button type="button" onClick={handleDelete}>
-          Delete candidate
+        <button type="submit" className="button primary">
+          {candidate ? "Edit candidate" : "Add candidate"}
         </button>
-      ) : null}
-
-      <button type="submit">{candidate ? "Edit candidate" : "Add candidate"}</button>
+      </footer>
     </form>
   );
 }

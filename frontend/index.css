@@ -49,7 +49,6 @@ img {
 
 :root {
   font-family: system-ui, Helvetica, Arial, sans-serif;
-  font-size: 120%;
   font-weight: 400;
   line-height: 1.5;
 
@@ -60,13 +59,32 @@ img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --white: #fefefe;
+  /* --white: #fefefe;
   --text-color: #444444;
   --bg-color: #fafafa;
   --accent-color: #c1fbec;
+  --error-color: #ff0033; */
 
+  --white: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 27%);
+  --bg-color: hsl(0, 0%, 98%);
+  --accent-color: hsl(168, 80%, 82%);
+  --error-color: hsl(0, 100%, 50%);
+
+  --bg-color-hover: hsl(0, 0%, 88%);
+  --text-color-hover: hsl(0, 0%, 38%);
+  --accent-color-hover: hsl(168, 80%, 60%);
+
+  --dialog-backdrop: rgba(44, 44, 44, 0.4);
   --shadow: 0 0 24px 0px rgba(44, 44, 44, 0.4);
   --border-radius: 1rem;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2.5rem;
+  --font-size-xxl: 3.5rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -108,12 +126,16 @@ main {
 /* Primitives */
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: var(--font-size-xl);
   font-weight: bold;
+  line-height: 1.1;
+
+  @media (min-width: 768px) {
+    font-size: var(--font-size-xxl);
+  }
 }
 
-input {
+input, select {
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   border: 3px solid var(--accent-color);
@@ -128,20 +150,35 @@ input {
   font-weight: bold;
   transition: all 0.3s ease-in;
   
-  &:hover{
+  /* &:hover{
     box-shadow: var(--shadow);
-  }
+  } */
 
   &.primary {
     background-color: var(--text-color);
     color: var(--accent-color);
     border-color: var(--accent-color);
+    &:hover{
+      background-color: var(--text-color-hover);
+    }
   }
-  
+
   &.secondary {
     background-color: var(--text-color);
     color: var(--bg-color);
     border-color: var(--accent-color);
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: var(--text-color);
+    border-color: var(--text-color);
+  }
+
+  &.small {
+    font-size: var(--font-size-xs);
+    padding: 0.25rem 0.5rem;
+    border-width: 2px;
   }
 
 }

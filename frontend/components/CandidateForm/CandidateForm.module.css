@@ -1,0 +1,29 @@
+form {
+  display: grid;
+  gap: 1rem;
+
+  label {
+    font-size: var(--font-size-xs);
+    font-weight: bold;
+    display: block;
+
+    text-indent: 1ch;
+
+    input, select {
+      width: 100%;
+      border: 3px solid var(--text-color);
+    }
+
+    .error {
+      color: var(--error-color);
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+}
