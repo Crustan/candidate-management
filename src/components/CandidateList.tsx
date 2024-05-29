@@ -3,14 +3,15 @@ import {CandidateListItem} from "./CandidateListItem";
 
 interface CandidateListProps {
   candidates: Candidate[];
+  onCandidateClick: (id: Candidate["id"]) => void;
 }
 
-export function CandidateList({candidates}: CandidateListProps) {
+export function CandidateList({candidates, onCandidateClick}: CandidateListProps) {
   return (
     <ul>
       {candidates.map((candidate) => (
         <li key={candidate.id}>
-          <CandidateListItem {...candidate} />
+          <CandidateListItem {...candidate} onClick={onCandidateClick} />
         </li>
       ))}
     </ul>
