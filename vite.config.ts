@@ -6,6 +6,11 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
     plugins: [react()],
+    css: {
+      modules: {
+        localsConvention: "camelCase",
+      },
+    },
     server: {
       proxy: {
         "/api": {
