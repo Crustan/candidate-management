@@ -1,0 +1,25 @@
+.theme-toggle {
+  border: 0;
+  outline: none;
+  background: none;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  .sun,
+  .moon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--text-color);
+    opacity: 0.3;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .sun:hover,
+  .moon:hover {
+    opacity: 1;
+    -webkit-animation: float 1s linear infinite;
+    animation: float 1s linear infinite;
+    cursor: pointer;
+  }
+}
