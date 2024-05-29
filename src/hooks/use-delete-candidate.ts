@@ -5,6 +5,6 @@ export function useDeleteCandidate() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: api.deleteCandidate,
-    onSuccess: () => queryClient.invalidateQueries({queryKey: ["candidates", "candidate"]}),
+    onSuccess: () => queryClient.invalidateQueries({queryKey: ["candidates"]}),
   });
 }
