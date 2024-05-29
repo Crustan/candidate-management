@@ -9,16 +9,8 @@ import {Dialog} from "./Dialog";
 import {useGetCandidate} from "../hooks/use-get-candidate";
 import {useUpdateCandidate} from "../hooks/use-update-candidate";
 import {useDeleteCandidate} from "../hooks/use-delete-candidate";
-import {ThemeToggle} from "./ThemeToggle";
-
-interface SearchInputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-function SearchInput({value, onChange}: SearchInputProps) {
-  return <input type="search" placeholder="Search candidates" value={value} onChange={onChange} />;
-}
+import {ThemeToggle} from "./ThemeToggle/ThemeToggle";
+import {SearchInput} from "./SearchInput";
 
 function App() {
   const [q, setQ] = useState("");
@@ -59,17 +51,23 @@ function App() {
   return (
     <div className="app-wrapper">
       <ThemeToggle />
-      <h1 className="heading-1">Candidate management</h1>
-      <SearchInput value={q} onChange={handleSearchChange} />
-      <button onClick={handleOnAddCandidateClick}>Add new candidate</button>
+      <main>
+        <h1 className="heading-1">Candidate management</h1>
 
-      {isCandidatesListLoading ? <p>Searching...</p> : null}
+        <div className="search-bar">
+          <SearchInput value={q} onChange={handleSearchChange} />
+          <button className="button primary" onClick={handleOnAddCandidateClick}>
+            Add new candidate
+          </button>
+        </div>
 
-      {candidates ? (
-        <CandidateList candidates={candidates} onCandidateClick={handleOnCandidateClick} />
-      ) : null}
-      {candidatesListError ? <p>Error: {candidatesListError.message}</p> : null}
+        {isCandidatesListLoading ? <p>Searching...</p> : null}
 
+        {candidates ? (
+          <CandidateList candidates={candidates} onCandidateClick={handleOnCandidateClick} />
+        ) : null}
+        {candidatesListError ? <p>Error: {candidatesListError.message}</p> : null}
+      </main>
       <Dialog isOpen={isDialogOpen} onCancel={() => setIsDialogOpen(false)}>
         {isCandidateLoading ? null : (
           <CandidateForm
