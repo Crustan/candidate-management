@@ -4,7 +4,8 @@
   border-radius: var(--border-radius);
 
   padding: 2rem;
-  width: clamp(20ch, 80%, 40ch);
+  width: var(--main-width);
+  container-type: inline-size;
 
   &::backdrop {
     background-color: var(--dialog-backdrop);
@@ -12,6 +13,7 @@
   
   .dialog-content {
     display: grid;
+    gap: .5rem;
     
     > button {
       justify-self: flex-end;

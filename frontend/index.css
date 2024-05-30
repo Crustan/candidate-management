@@ -85,6 +85,8 @@ img {
   --font-size-lg: 1.25rem;
   --font-size-xl: 2.5rem;
   --font-size-xxl: 3.5rem;
+
+  --main-width: clamp(20em, 65ch, 100%);
 }
 
 @media (prefers-color-scheme: light) {
@@ -121,6 +123,7 @@ body {
 main {
   display: grid;
   gap: 2rem;
+  width: var(--main-width)
 }
 
 /* Primitives */
@@ -136,10 +139,12 @@ h1 {
 }
 
 input, select {
+  appearance: none;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   border: 3px solid var(--accent-color);
-  background: var(--white)
+  background: var(--white);
+  line-height: 1.2;
 }
 
 .button {

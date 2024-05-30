@@ -1,12 +1,12 @@
-form {
+.form {
   display: grid;
+  grid-template-columns: max-content;
   gap: 1rem;
 
   label {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
     font-weight: bold;
     display: block;
-
     text-indent: 1ch;
 
     input, select {
@@ -14,16 +14,47 @@ form {
       border: 3px solid var(--text-color);
     }
 
+    &:has(.error) {
+      input, select {
+        border-color: var(--error-color);
+      }
+    }
+
     .error {
       color: var(--error-color);
-      font-size: var(--font-size-xs);
     }
   }
+
 
   footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
 
+@container (min-width: 30rem){
+  .form {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "name name age"
+    "email email email"
+    "street street street"
+    "postal city city"
+    "country country status"
+    "submit submit submit";
+    
+    label:has([name="name"]){ grid-area: name; }
+    label:has([name="age"]){ grid-area: age; }
+    label:has([name="email"]){ grid-area: email; }
+    label:has([name="address.street"]){ grid-area: street; }
+    label:has([name="address.postalCode"]){ grid-area: postal; }
+    label:has([name="address.city"]){ grid-area: city; }
+    label:has([name="address.country"]){ grid-area: country; }
+    label:has([name="status"]){ grid-area: status; }
+
+    footer {
+      grid-area: submit;
+    }
   }
 }
