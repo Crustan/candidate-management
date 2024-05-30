@@ -133,10 +133,11 @@
     display: grid;
     gap: 1rem;
   }
+
 }
 
 @layer components {
-  h1 {
+  .heading-1 {
     font-size: var(--font-size-xl);
     font-weight: bold;
     line-height: 1.1;
@@ -146,9 +147,14 @@
     }
 
     [data-theme="dark"] & {
-      color: var(--accent-color);
+      color: var(--text-color);
     }
   }
+
+  .empty-message {
+    text-align: center;
+    color: var(--accent-color-hover)
+  } 
 
   input,
   select {

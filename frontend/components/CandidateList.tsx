@@ -18,6 +18,10 @@ function sortOnStatus(a: Candidate, b: Candidate) {
 }
 
 export function CandidateList({candidates, onCandidateClick}: CandidateListProps) {
+  if (candidates.length === 0) {
+    return <p className="empty-message">No candidates found. Add a new candidate</p>;
+  }
+  
   return (
     <ul className="list">
       {candidates.sort(sortOnStatus).map((candidate) => (
