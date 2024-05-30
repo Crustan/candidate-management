@@ -1,4 +1,7 @@
 .theme-toggle {
+  position: fixed;
+  inset-block-start: 2rem;
+  inset-inline-start: 2rem;
   border: 0;
   outline: none;
   background: none;
