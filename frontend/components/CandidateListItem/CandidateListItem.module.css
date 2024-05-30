@@ -1,0 +1,69 @@
+.candidate-item {
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  color: var(--text-color);
+  padding: 1ch 2ch;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: var(--shadow-sm);
+  }
+
+  display: grid;
+  grid-template-areas: 
+    "name status"
+    "email email"
+    "address address";
+    
+  .candidate-name {
+    grid-area: name;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+  }
+  .candidate-status {
+    grid-area: status;
+    
+    padding: .25ch 1ch;
+    justify-self: end;
+    align-self: flex-start;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    background: var(--accent-color);
+    border-radius: var(--border-radius);
+
+    &[data-status="contact"] {
+      background: var(--black);
+      color: var(--green);
+    }
+    &[data-status="dialog"] {
+      background: var(--accent-color);
+      color: var(--text-color);
+    }
+    &[data-status="interview"] {
+      background: var(--blue);
+      color: var(--white);
+    }
+    &[data-status="offer"] {
+      background: var(--yellow);
+      color: var(--black);
+    }
+    &[data-status="hired"] {
+      background: var(--red);
+      color: var(--black);
+    }
+    &[data-status="ended"] {
+      background: var(--red);
+      color: var(--white);
+    }
+  }
+  .candidate-email {
+    grid-area: email;
+    color: var(--text-color-hover);
+  }
+  .candidate-address {
+    grid-area: address;
+    color: var(--text-color-hover);
+  }
+}
