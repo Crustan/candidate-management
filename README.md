@@ -55,3 +55,7 @@ I wanted to try this for the first time and I wasn't disappointed. Very easy to 
 ### Styling: CSS (Modules)
 
 I prefer regular CSS over preprocessors like SASS or frameworks like Tailwind, since I feel CSS is so mature nowadays to so that a pre-processor is redundant. I did use a mix between global CSS and CSS modules though for better separation of concerns.
+
+## Future improvements (didn't have the time)
+
+Kanban board with drag'n'drop. The API is prepared for updating only status, which was meant to be triggered on drag'n'drop.
