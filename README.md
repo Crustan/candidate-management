@@ -9,8 +9,14 @@ Application written in Typescript to manage candidates in a recruitment process.
 ## Getting started
 
 1. Install dependencies `npm install`
-2. Generate a "database" `npm run create:db`
-3. Start DB server, backend server and web app simultanously `npm start` 
+2. Add a .env with these values
+  ```
+  DB_HOST=http://localhost:3002/candidates
+  API_PORT=3001
+  VITE_API_URL=http://localhost:3001
+  ```
+3. Generate a "database" `npm run create:db`
+4. Start DB server, backend server and web app simultanously `npm start` 
 
 or run them separately
 
