@@ -3,7 +3,7 @@ export const Status = {
   dialog: "dialog",
   interview: "interview",
   offer: "offer",
-  hired: "hired",
+  // hired: "hired",
   ended: "ended",
 } as const;
 

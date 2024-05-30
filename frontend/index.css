@@ -87,6 +87,8 @@
     --font-size-xxl: 3.5rem;
 
     --main-width: clamp(20em, 65ch, 100%);
+
+    --kanban-bp: 80em;
   }
 
   [data-theme="dark"] {
@@ -128,12 +130,10 @@
     gap: 2rem;
     width: var(--main-width);
   }
-
-  .list {
-    display: grid;
-    gap: 1rem;
+  
+  @media (width >= 80em) {
+    main {width: 100%;}
   }
-
 }
 
 @layer components {

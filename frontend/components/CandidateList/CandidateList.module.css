@@ -1,0 +1,42 @@
+.list-grid{
+  display: grid;
+  gap: 1rem;
+  
+  @media (width >= 80em) {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    font-size: 80%;
+  }
+  
+  .column {
+    &:has(.list:empty) {
+      @media (width < 80em) {
+        display: none;
+      }
+    }
+
+    border-radius: var(--border-radius);
+    
+    article {
+      border-radius: calc(var(--border-radius) / 2);
+    }
+
+    @media (width >= 80em) {
+      padding: 0.5rem;
+      background-color: var(--bg-color-hover);
+    }
+  }
+
+  .col-heading {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+}
+
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+

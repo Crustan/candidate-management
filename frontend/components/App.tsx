@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useDebouncedValue} from "../hooks/use-debounced-value";
 import {useGetCandidates} from "../hooks/use-get-candidates";
-import {CandidateList} from "./CandidateList";
+import {CandidateList} from "./CandidateList/CandidateList";
 import {useCreateCandidate} from "../hooks/use-create-candidate";
 import {CandidateForm} from "./CandidateForm/CandidateForm";
 import {Candidate} from "../../types/candidate";

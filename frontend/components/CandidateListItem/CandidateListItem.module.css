@@ -5,6 +5,8 @@
   padding: 1ch 2ch;
   cursor: pointer;
 
+  container: candidate-item / inline-size;
+
   &:hover{
     box-shadow: var(--shadow-sm);
   }
@@ -17,7 +19,7 @@
     
   .candidate-name {
     grid-area: name;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-lmd);
     font-weight: bold;
   }
   .candidate-status {
@@ -49,10 +51,10 @@
       background: var(--yellow);
       color: var(--black);
     }
-    &[data-status="hired"] {
+    /* &[data-status="hired"] {
       background: var(--red);
       color: var(--black);
-    }
+    } */
     &[data-status="ended"] {
       background: var(--red);
       color: var(--white);
@@ -61,6 +63,10 @@
   .candidate-email {
     grid-area: email;
     color: var(--text-color-hover);
+
+    @container candidate-item (width < 20rem){
+      display: none;
+    }
   }
   .candidate-address {
     grid-area: address;
