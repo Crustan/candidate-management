@@ -70,7 +70,7 @@ export function CandidateForm({onSubmit, candidate, onDelete}: CandidateFormProp
       </label>
       <footer>
         {candidate ? (
-          <button type="button" className="button secondary" onClick={handleDelete}>
+          <button type="button" className="button secondary u-red" onClick={handleDelete}>
             Delete candidate
           </button>
         ) : null}

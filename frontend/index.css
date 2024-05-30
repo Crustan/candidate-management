@@ -1,4 +1,4 @@
-@layer reset, foundation, layout, components;
+@layer reset, foundation, layout, components, utils;
 
 @layer reset {
   /* Minimal CSS Reset */
@@ -139,12 +139,12 @@
     font-size: var(--font-size-xl);
     font-weight: bold;
     line-height: 1.1;
-  
+
     @media (min-width: 768px) {
       font-size: var(--font-size-xxl);
     }
   }
-  
+
   input,
   select {
     appearance: none;
@@ -154,7 +154,18 @@
     background: var(--white);
     line-height: 1.2;
   }
-  
+
+  select {
+    position: relative;
+  }
+  select::after {
+    content: "▼";
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   button {
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
@@ -162,36 +173,52 @@
     border: 3px solid;
     font-weight: bold;
     transition: all 0.3s ease-in;
-  
-    /* &:hover{
-      box-shadow: var(--shadow);
-    } */
-  
+
     &.primary {
-      background-color: var(--text-color);
-      color: var(--accent-color);
-      border-color: var(--accent-color);
-      &:hover {
-        background-color: var(--text-color-hover);
+      [data-theme="dark"] & {
+        background-color: var(--text-color);
+        color: var(--accent-color);
+        border-color: var(--bg-color);
+        &:hover {
+          background-color: var(--text-color-hover);
+        }
+      }
+      [data-theme="light"] & {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        border-color: var(--accent-color);
+        &:hover {
+          background-color: var(--accent-color-hover);
+        }
       }
     }
-  
+
     &.secondary {
-      background-color: var(--text-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border-color: var(--bg-color);
+
+      &:hover {
+        border-color: currentColor;
+      }
     }
-  
+
     &.ghost {
       background-color: transparent;
       color: var(--text-color);
       border-color: var(--text-color);
     }
-  
+
     &.small {
       font-size: var(--font-size-xs);
       padding: 0.25rem 0.5rem;
       border-width: 2px;
     }
+  }
+}
+
+@layer utils {
+  .u-red {
+    color: var(--error-color);
   }
 }

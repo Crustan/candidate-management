@@ -18,7 +18,7 @@ export function Dialog({isOpen, onCancel, children}: React.PropsWithChildren<Dia
   }, [isOpen]);
 
   return (
-    <dialog ref={ref} onCancel={onCancel} className={css.dialog}>
+    <dialog data-theme="light" ref={ref} onCancel={onCancel} className={css.dialog}>
       <div className={css.dialogContent}>
         <button onClick={onCancel} className="button small">
           Close
