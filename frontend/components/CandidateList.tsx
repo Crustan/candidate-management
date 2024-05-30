@@ -1,15 +1,26 @@
-import {Candidate} from "../../types/candidate";
-import {CandidateListItem} from "./CandidateListItem";
+import {Candidate, Status} from "../../types/candidate";
+import {CandidateListItem} from "./CandidateListItem/CandidateListItem";
 
 interface CandidateListProps {
   candidates: Candidate[];
   onCandidateClick: (id: Candidate["id"]) => void;
 }
 
+function sortOnStatus(a: Candidate, b: Candidate) {
+  const statusOrder = Object.values(Status);
+
+  if (statusOrder.indexOf(a.status) < statusOrder.indexOf(b.status)) {
+    return -1;
+  } else if (statusOrder.indexOf(a.status) > statusOrder.indexOf(b.status)) {
+    return 1;
+  }
+  return 0;
+}
+
 export function CandidateList({candidates, onCandidateClick}: CandidateListProps) {
   return (
-    <ul>
-      {candidates.map((candidate) => (
+    <ul className="list">
+      {candidates.sort(sortOnStatus).map((candidate) => (
         <li key={candidate.id}>
           <CandidateListItem {...candidate} onClick={onCandidateClick} />
         </li>
