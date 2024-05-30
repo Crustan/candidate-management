@@ -10,10 +10,13 @@ Application written in Typescript to manage candidates in a recruitment process.
 
 1. Install dependencies `npm install`
 2. Generate a "database" `npm run create:db`
-3. Start DB server, backend server and web app simultanously `npm start` or
-   1. Start DB server `npm run start:db`
-   2. Start backend `npm run start:api`
-   3. Start web app `npm run dev`
+3. Start DB server, backend server and web app simultanously `npm start` 
+
+or run them separately
+
+1. Start DB server `npm run start:db`
+2. Start backend `npm run start:api`
+3. Start web app `npm run dev`
 
 ## Project structure
 
@@ -49,7 +52,6 @@ I like the thought of only using browser native FormData for forms, like in Remi
 
 I wanted to try this for the first time and I wasn't disappointed. Very easy to setup.
 
-### Styling: CSS
+### Styling: CSS (Modules)
 
-TODO
-
+I prefer regular CSS over preprocessors like SASS or frameworks like Tailwind, since I feel CSS is so mature nowadays to so that a pre-processor is redundant. I did use a mix between global CSS and CSS modules though for better separation of concerns.
