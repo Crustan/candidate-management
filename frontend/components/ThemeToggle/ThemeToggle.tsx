@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import css from "./ThemeToggle.module.css";
 
+// TODO: Store in localStorage
+
 function getInitialTheme(): "light" | "dark" {
   if (
     window.matchMedia("prefers-color-theme: dark") ||
