@@ -11,6 +11,7 @@ import {useUpdateCandidate} from "../hooks/use-update-candidate";
 import {useDeleteCandidate} from "../hooks/use-delete-candidate";
 import {ThemeToggle} from "./ThemeToggle/ThemeToggle";
 import {SearchInput} from "./SearchInput";
+import {SearchBar} from "./SearchBar/SearchBar";
 
 function App() {
   const [q, setQ] = useState("");
@@ -54,12 +55,12 @@ function App() {
       <main>
         <h1 className="heading-1">Candidate management</h1>
 
-        <div className="search-bar">
+        <SearchBar>
           <SearchInput value={q} onChange={handleSearchChange} />
           <button className="button primary" onClick={handleOnAddCandidateClick}>
             Add new candidate
           </button>
-        </div>
+        </SearchBar>
 
         {isCandidatesListLoading ? <p>Searching...</p> : null}
 

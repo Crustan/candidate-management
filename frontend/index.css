@@ -187,14 +187,3 @@ input, select {
   }
 
 }
-
-.search-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  input[type=search] {
-    flex: 1;
-  }
-}

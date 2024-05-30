@@ -1,0 +1,19 @@
+search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  container-name: search;
+  container-type: inline-size;
+
+  input[type=search] {
+    flex: 1;
+  }
+  @media (max-width: 30rem){
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
+  } 
+}
